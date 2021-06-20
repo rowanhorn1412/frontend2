@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="../styling/style.css">
+    <title>DateMe - registration</title>
+  </head>
+
+  <body>
+    <main>
+        <header>
+            <h1>Create a DateMe account!</h1>
+        </header>
+    
+        <form action="start.html" id="registration" method="POST">
+            <h2>Would you like to introduce yourself?</h2>
+            <div class="form-content">
+                <label for="firstName">First name</label>
+                <input
+                    type="text"
+                    id="firstName"
+                    placeholder="First name"
+                    name="firstName"
+                    required
+                />
+                <small id="message">Error message</small>
+            </div>
+        
+
+            <div class="form-content">
+                <label for="lastName">Last name</label>
+                <input 
+                    type="text" 
+                    id="lastName"
+                    placeholder="Last name" 
+                    name="lastName" 
+                    required 
+                />
+                <small id="message">Error message</small>
+            </div>
+        
+
+            <div class="form-content">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    minlength="6"
+                    maxlength="60 "
+                    placeholder="example@hotmail.com"
+                    required
+                />
+                <small id="message">Error message</small>
+            </div>
+        
+
+            <div class="form-content">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="Password"
+                    name="password"
+                    minlength="6"
+                    placeholder="Min 6 letters"
+                    required
+                />
+                <small id="message">Error message</small>
+            </div>
+
+            <h2>Tell us something about yourself..</h2>
+
+            <div class="form-content">
+                <label for="age">What is your age?</label> 
+                <input
+                    type="number"
+                    min="18"
+                    max="55"
+                    id="age"
+                    name="age"
+                    value="18"
+                    placeholder="18+" required
+                />
+                <small id="message">Error message</small>
+            </div>
+
+            <h3>What is your gender?</h3>
+            <div class="form-content">
+                <label for="man"
+                >Man
+                <input type="radio" id="man" name="gender" value="man" />
+                </label>
+                <label for="woman"
+                >Woman
+                <input type="radio" id="woman" name="gender" value="woman" />
+                </label>
+            </div>
+
+            <div class="form-content">
+                <label for="occupation">What is your current occupation?</label>
+                <input
+                    type="text"
+                    placeholder="Teacher of the year"
+                    name="occupation"   
+                    id="occupation"   
+                />
+            </div>
+
+            <button type="submit">Create</button>
+            <a href="../index.html" class="toSignIn">Back to sign in</a>
+
+        </form>
+    </main>
+    <footer>
+        <script type="text/javascript" src="../scripts/registration.js"></script>
+    </footer>
+  </body>
+</html>
