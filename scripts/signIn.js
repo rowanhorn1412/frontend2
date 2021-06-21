@@ -1,7 +1,7 @@
 let form = document.getElementById('form');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
-let submit = document.getElementById('submit');
+// let submit = document.getElementById('submit');
 let message = document.getElementById('message');
 let existingAccount = false;
 
@@ -56,6 +56,6 @@ function checkStorage() {
     }   else {
         // message.classList.add('error');
         // message.classList.replace('none', 'succes');
-        location.href = 'https://rowanhorn1412.github.io/frontend2/';
+        // location.href = 'https://rowanhorn1412.github.io/frontend2/';
     }
 };
