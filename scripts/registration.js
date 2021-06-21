@@ -1,96 +1,120 @@
-let form = document.getElementById('form');
+// let form = document.querySelector('form');
+// let firstName = document.getElementById('firstName');
+// let lastName = document.getElementById('lastName');
+// let email = document.getElementById('email');
+// let password = document.getElementById('password');
+// let age = document.getElementById('age');
+// let man = document.getElementById('man');
+// let woman = document.getElementById('woman');
+// let occupation = document.getElementById('occupation');
+// let message = document.getElementById('small');
+// let submit = document.getElementById('submit');
+// textvalidate = false;
+// fieldvalidate = false;
+
+// // automatic check for loggedin user
+// checkLogin();
+
+// // disabling submit and call store function on click
+// submit.addEventListener('click', function(e) {
+//     e.preventDefault()
+//     store();
+//     checkLogin();
+//     console.log(localStorage);
+// })
+
+// // checking if localstorage has data, and if it does it redirects back to login
+// function checkLogin() {
+//     console.log(localStorage);
+//     if (localStorage.email == null) {
+//     } else {
+//         message.classList.add('error');
+//         message.classList.replace('none', 'block');
+//     }
+// }
+
+// // Function to check if the input contains numbers
+// function verifyInput() {
+//     if (firstName.value.match(numbers) || lastName.value.match(numbers)) {
+//         message.classList.add('error');
+//         message.classList.replace('none', 'block');
+//         textvalidate = false;
+//     } else {
+//         textvalidate = true;
+//         notification.classList.replace('block', 'none');
+//     }
+// }
+
+// // Storing the user-data to local storage to create account in local storage (database mimic)
+// function store() {
+//     if (email.value.length == 0 && password.value.length == 0) {
+//         message.classList.add('error');
+//         message.classList.replace('none', 'block');
+//     } else {
+//         localStorage.setItem('firstName', firstName.value);
+//         localStorage.setItem('lastName', lastName.value);
+//         localStorage.setItem('email', email.value);
+//         localStorage.setItem('password', password.value);
+//         localStorage.setItem('age', age.value);
+//         location.href = 'https://rowanhorn1412.github.io/frontend2/';
+//     }
+// }
+
+
+
+let form = document.querySelector('form');
 let firstName = document.getElementById('firstName');
 let lastName = document.getElementById('lastName');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let age = document.getElementById('age');
-let man = document.getElementById('man');
-let woman = document.getElementById('woman');
 let occupation = document.getElementById('occupation');
-let submit = document.getElementById('submit'); 
+let submit = document.getElementById('submit');
 let message = document.getElementById('message');
+let textvalidate = false;
+let fieldvalidate = false;
 
-form.addEventListener('submit', e => { //krijg error in console
-    e.preventDefault();
 
-    checkInput();
-});
+// disabling submit and call store function on click
+submit.addEventListener('click', function(e) {
+    e.preventDefault()
+    store();
+    checkLogin();
+    console.log(localStorage);
+})
 
-function checkInput() {
-    // getting the value from the input fields
-    const firstNameValue = firstName.value();
-    const lastNameValue = lastName.value();
-    const emailValue = lastName.value();
-    const passwordValue = password.value();
-    const ageValue = age.value();
+// checking if localstorage has data, and if it does it redirects back to login
+function checkLogin() {
+    console.log(localStorage);
+    if (localStorage.email == null) {
 
-    if(firstNameValue === '') {
-        //show error
-        //add error class
-        setErrorFor(firstName, 'First name cannot be empty');
     } else {
-        //add succes class
-        setSuccesFor(firstName);
-    }
-
-    if(lastNameValue === '') {
-        setErrorFor(lastName, 'Last name cannot be empty');
-    } else {
-        setSuccesFor(lastName);
-    }
-
-    if(emailValue === '') {
-		setErrorFor(email, 'Email cannot be blank');
-	} else if (!emailCorrect(emailValue)) {
-		setErrorFor(email, 'Not a valid email');
-	} else {
-		setSuccessFor(email);
-	}
-
-    if(passwordValue === '') {
-        setErrorFor(email, 'Email cannot be empty');
-    } else {
-        setSuccesFor(email);
-    }
-
-    if(ageValue === '') {
-        setErrorFor(age, 'Age cannot be empty');
-    // } else if (!emailCorrect(emailValue)) {
-	// 	setErrorFor(email, 'Not a valid email');
-	} else {
-        setSuccesFor(age);
+        message.classList.add('small');
+        message.classList.replace('none', 'block');
+        document.getElementById('small').innerHTML = "Je hebt al een account"
     }
 }
 
-function setErrorFor(input, message) {
-    const formContent = input.parentElement; 
-    const small = formContent.querySelector('small');
-    //add error inside small
-    small.innerText = message;
-    //add error class
-    formContent.className = 'form-content error';
-}
 
-function setSuccesFor(input) {
-    const formContent = input.parentElement;
-    formContent.className = 'form-content succes';
-
-}
-
-function emailCorrect(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
-
+// Storing the user-data to local storage to create account in local storage (database mimic)
 function store() {
     if (email.value.length == 0 && password.value.length == 0) {
         message.classList.add('error');
-
-    }  else {
+        message.classList.replace('none', 'block');
+        document.getElementById('small').innerHTML = "Please add email + password";
+    } else {
         localStorage.setItem('firstName', firstName.value);
-        localStorage.setItem('lastName', firstName.value);
-        localStorage.setItem('email', firstName.value);
-        localStorage.setItem('password', firstName.value);
-        localStorage.setItem('age', firstName.value);
-        location.href = 'https://rowanhorn1412.github.io/front-end/';
+        localStorage.setItem('lastName', lastName.value);
+        localStorage.setItem('age', age.value);
+        localStorage.setItem('occupation', occupation.value);
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', password.value);
+        location.href = 'https://rowanhorn1412.github.io/frontend2/';
     }
 }
+
+
+function show() {
+    if(firstName === '')
+    message.classList.replace('none', 'block');
+}   

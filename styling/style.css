@@ -29,6 +29,8 @@ header h1{
     text-align: center;
 }
 
+
+
 /* registration */
 
 form {
@@ -41,12 +43,12 @@ form {
     position: relative;
 }
 
-.form-content label{
+label{
     display: inline-block;
     margin-bottom: 5px;
 }
 
-.form-content input{
+input{
     border: 2px solid #f0f0f0;
     border-radius: 4px;
     display: block;
@@ -56,29 +58,37 @@ form {
     width: 100%;
 }
 
-.form-control input:focus {
+input:focus {
 	outline: 0;
 	border-color: #777;
 }
 
-.form-content.succes input {
+input:valid {
     border-color: rgb(20, 179, 20);
 }
 
-.form-content.error input {
+.success {
+    border-color: rgb(20, 179, 20);
+}
+
+.error {
     border-color: rgb(204, 70, 70);
 }
 
-.form-content small {
+small {
     color: rgb(204, 70, 70);
-    visibility: hidden;
     position: absolute;
     bottom: 0;
     left: 0;
+    display: none;
 }
 
-.form-content.error small {
-    visibility: visible;
+.block {
+    display: block;
+    color: rgb(204, 70, 70);
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 form button {
