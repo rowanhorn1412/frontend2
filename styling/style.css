@@ -67,10 +67,18 @@ input:valid {
     border-color: rgb(20, 179, 20);
 }
 
+#error {
+    display: block;
+    color: red;
+}
 
+input#emailIndex:valid {
+    border-color:#777;
+}
 
-
-
+input#passwordIndex:valid {
+    border-color:#777;
+}
 
 
 

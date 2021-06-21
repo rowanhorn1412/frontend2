@@ -1,12 +1,13 @@
 let form = document.getElementById('form');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
-// let submit = document.getElementById('submit');
+let submit = document.getElementById('submit');
 let message = document.getElementById('message');
+let errorElement = document.getElementById('error');
 let existingAccount = false;
 
 
-// disabling submit and call store function on click
+// disabling submit and checks the localStorage
 submit.addEventListener('click', function(e) {
     e.preventDefault()
     checkStorage();
@@ -14,7 +15,7 @@ submit.addEventListener('click', function(e) {
     checkAccount();
 })
 
-
+// checks is there is an account still in localStorage
 function checkAccount() {
     console.log(localStorage)
     if (localStorage.getItem('email') == null) {
@@ -24,38 +25,42 @@ function checkAccount() {
     }
 }
 
+//checks if the input contains value, otherwise disable the submit button
 function inputValidation() {
     if (email.value && password.value) {
-        fieldvalidate = true;
+
     } else {
         submit.disabled = true
-        submit.classList.add('false');
     }
 }
 
+// check localStorage to signIn validation
 function checkStorage() {
     let storedEmail = localStorage.email;
     let storedPassword = localStorage.password;
+    let message = []
 
     if (existingAccount == true) {
-        message.classList.replace('none', 'succes');
+
+        //if password and email are correct, then go to next page
         if (email.value == storedEmail && password.value == storedpassword) {
             location.href = 'pages/start.html';
-        } else if (email.value !== storedEmail && password.value == storedpassword) {
-            email.classList.add('error');
-            message.classList.add('error');
-        } else if (email.value == storedEmail && password.value !== storedPassword) {
-            password.classList.add('error');
-            message.classList.add('error');
-        } else {
-        email.classList.add('error');
-        password.classList.add('error');
-        message.classList.add('error');
-    }
 
-    }   else {
-        // message.classList.add('error');
-        // message.classList.replace('none', 'succes');
-        // location.href = 'https://rowanhorn1412.github.io/frontend2/';
+        //   if email is incorrect and password correct, give email error
+        } else if (email.value !== storedEmail && password.value == storedpassword) {
+            message.push('email is incorrect')
+            errorElement.innerText = message.join(', ')
+
+        //  if email is correct and password incorrect, give password error
+        } else if (email.value == storedEmail && password.value !== storedPassword) {
+            message.push('password is incorrect')
+            errorElement.innerText = message.join(', ')
+
+        //if both are incorrect give mutual error
+        } else {
+            message.push('email and password are incorrect')
+            errorElement.innerText = message.join(', ')
+        }    
     }
 };
+

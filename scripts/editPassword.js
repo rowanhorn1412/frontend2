@@ -4,6 +4,7 @@ let existingAccount = false,
 
 checkAccount();
 
+// check for localStorage data
 function checkAccount() {
     console.log(localStorage);
     if (localStorage.email == null) {
@@ -13,10 +14,11 @@ function checkAccount() {
     }
 }
 
+//submit new password too localStorage
 submit.addEventListener('click', function(e) {
     e.preventDefault()
     if (existingAccount == true) {
-        localStorage.setItem('passwword', password.value);
+        localStorage.setItem('password', password.value);
         location.href = 'start.html';
     }
 })

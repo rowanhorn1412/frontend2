@@ -8,8 +8,7 @@ let occupation = document.getElementById('occupation');
 let submit = document.getElementById('submit');
 let message = document.getElementById('message');
 let errorElement = document.getElementById('error');
-let textvalidate = false;
-let fieldvalidate = false;
+
 
 
 // disabling submit and call store function on click
@@ -20,13 +19,33 @@ submit.addEventListener('click', function(e) {
     console.log(localStorage);
 
     let message = []
-    if (this.name.value === '' || this.name.value == null) {
+    if (firstName.value === '' || firstName.value == null) {
         message.push('first name is required')    
+    }
+
+    if (lastName.value === '' || lastName.value == null) {
+        message.push('last name is required')    
+    }
+
+    if (email.value === '' || email.value == null) {
+        message.push('email is required')    
+    }
+
+    if (password.value === '' || password.value == null) {
+        message.push('password is required')    
+    }
+
+    if (age.value === '' || age.value == null) {
+        message.push('age is required')    
+    }
+
+    if (occupation.value === '' || occupation.value == null) {
+        message.push('occupation is required')    
     }
 
     if (message.length > 0) {
         e.preventDefault()
-        errorElement.innerText = messages.join(', ')
+        errorElement.innerText = message.join(', ')
     }
 })
 
@@ -34,20 +53,13 @@ submit.addEventListener('click', function(e) {
 function checkLogin() {
     console.log(localStorage);
     if (localStorage.email == null) {
-
-    } else {
-        message.classList.add('small');
-        message.classList.replace('none', 'block');
-    }
+    } 
 }
-
 
 // Storing the user-data to local storage to create account in local storage (database mimic)
 function store() {
     if (email.value.length == 0 && password.value.length == 0) {
-        message.classList.add('error');
-        message.classList.replace('none', 'block');
-        document.getElementById('small').innerHTML = "Please add email + password";
+
     } else {
         localStorage.setItem('firstName', firstName.value);
         localStorage.setItem('lastName', lastName.value);
