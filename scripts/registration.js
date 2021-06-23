@@ -18,6 +18,7 @@ submit.addEventListener('click', function(e) {
     checkLogin();
     console.log(localStorage);
 
+    //give error messages for empty input fields
     let message = []
     if (firstName.value === '' || firstName.value == null) {
         message.push('first name is required')    
@@ -42,7 +43,6 @@ submit.addEventListener('click', function(e) {
     if (occupation.value === '' || occupation.value == null) {
         message.push('occupation is required')    
     }
-
     if (message.length > 0) {
         e.preventDefault()
         errorElement.innerText = message.join(', ')
@@ -56,7 +56,7 @@ function checkLogin() {
     } 
 }
 
-// Storing the user-data to local storage to create account in local storage (database mimic)
+// Storing the user-date in localStorage, to keep te session live
 function store() {
     if (email.value.length == 0 && password.value.length == 0) {
 

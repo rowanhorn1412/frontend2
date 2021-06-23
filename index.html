@@ -20,22 +20,26 @@
                 <label for="email">Email</label>
                 <input
                   type="email"
-                  id="emailIndex"
+                  id="email"
                   name="email"
                   minlength="6 "
                   maxlength="60 "
                   placeholder="example@hotmail.com"
                   required
                 />
+                <span role="alert" id="emailError" aria-hidden="true"> Please enter Email </span>
+
                 <label for="password">Password</label>
                 <input
                   type="password"
-                  id="passwordIndex"
+                  id="password"
                   name="password"
                   minlength="6 "
                   placeholder="Min 6 letters"
                   required
                 />
+                <span role="alert" id="passwordError" aria-hidden="true"> Please enter Password </span>
+
             </div>
             <small id="error"></small>
             <button type="submit" id="submit">Sign In</button>

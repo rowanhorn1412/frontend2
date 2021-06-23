@@ -13,6 +13,8 @@ submit.addEventListener('click', function(e) {
     checkStorage();
     console.log(localStorage);
     checkAccount();
+    inputValidation();
+    // validateForm();
 })
 
 // checks is there is an account still in localStorage
@@ -25,13 +27,37 @@ function checkAccount() {
     }
 }
 
+// // Function to check the validation at each keydown event, so it auto refreshes
+// form.addEventListener('keydown', function() {
+//     validateForm();
+//     if (fieldvalidate == true) {
+//         submit.disabled = false
+//     }
+// });
+
 //checks if the input contains value, otherwise disable the submit button
 function inputValidation() {
-    if (email.value && password.value) {
+    const emailField = document.getElementById("email");
+    const passwordField = document.getElementById("password");
+    let valid = true;
 
-    } else {
-        submit.disabled = true
-    }
+  if (!emailField.value) {
+    const emailError = document.getElementById("emailError");
+    emailError.classList.add("visible");
+    emailField.classList.add("invalid");
+    emailError.setAttribute('aria-hidden', false);
+    emailError.setAttribute('aria-invalid', true);
+  }
+  
+  if (!passwordField.value) {
+    const passwordError = document.getElementById("passwordError");
+    passwordError.classList.add("visible");
+    passwordField.classList.add("invalid");
+    passwordError.setAttribute('aria-hidden', false);
+    passwordError.setAttribute('aria-invalid', true);
+  }
+
+  return valid;
 }
 
 // check localStorage to signIn validation
@@ -43,11 +69,11 @@ function checkStorage() {
     if (existingAccount == true) {
 
         //if password and email are correct, then go to next page
-        if (email.value == storedEmail && password.value == storedpassword) {
+        if (email.value == storedEmail && password.value == storedPassword) {
             location.href = 'pages/start.html';
 
         //   if email is incorrect and password correct, give email error
-        } else if (email.value !== storedEmail && password.value == storedpassword) {
+        } else if (email.value !== storedEmail && password.value == storedPassword) {
             message.push('email is incorrect')
             errorElement.innerText = message.join(', ')
 

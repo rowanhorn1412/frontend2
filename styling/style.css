@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: aquamarine;
+    background-color: lightskyblue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,24 +63,38 @@ input:focus {
 	border-color: #777;
 }
 
-input:valid {
-    border-color: rgb(20, 179, 20);
-}
+
 
 #error {
     display: block;
     color: red;
 }
 
-input#emailIndex:valid {
-    border-color:#777;
-}
-
-input#passwordIndex:valid {
-    border-color:#777;
-}
-
-
+/*  error message */
+#emailError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+  }
+  
+  #emailError.visible {
+    display: block;
+  }
+  
+  #passwordError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+  }
+  
+  #passwordError.visible {
+    display: block;
+  }
+  
+  input.invalid {
+    border-color: red;
+  }
+  
 
 
 
