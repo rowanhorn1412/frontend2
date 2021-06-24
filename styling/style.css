@@ -71,29 +71,71 @@ input:focus {
 }
 
 /*  error message */
+
+#firstNameError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+}
+  
+#firstNameError.visible {
+    display: block;
+}
+  
+#lastNameError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+}
+  
+#lastNameError.visible {
+    display: block;
+}
+
 #emailError {
     display: none;
     font-size: 0.8em;
     color: red;
-  }
+}
   
-  #emailError.visible {
+#emailError.visible {
     display: block;
-  }
+}
   
-  #passwordError {
+#passwordError {
     display: none;
     font-size: 0.8em;
     color: red;
-  }
+}
   
-  #passwordError.visible {
+#passwordError.visible {
     display: block;
-  }
+}
+
+#ageError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+}
   
-  input.invalid {
+#ageError.visible {
+    display: block;
+}
+  
+#occupationError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+}
+  
+#occupationError.visible {
+    display: block;
+}
+  
+  
+input.invalid {
     border-color: red;
-  }
+}
   
 
 

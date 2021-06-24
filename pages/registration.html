@@ -17,7 +17,7 @@
         <form action="start.html" id="form" method="POST">
             <h2>Would you like to introduce yourself?</h2>
             <div class="form-content">
-                <label for="firstName">First name</label>
+                <label for="firstName">First Name</label>
                 <input
                     type="text"
                     id="firstName"
@@ -25,11 +25,12 @@
                     name="firstName"
                     required
                 />
+                <span role="alert" id="firstNameError" aria-hidden="true"> Please enter First Name </span>
             </div>
         
 
             <div class="form-content">
-                <label for="lastName">Last name</label>
+                <label for="lastName">Last Name</label>
                 <input 
                     type="text" 
                     id="lastName"
@@ -37,6 +38,7 @@
                     name="lastName" 
                     required 
                 />
+                <span role="alert" id="lastNameError" aria-hidden="true"> Please enter Last Name </span>
             </div>
         
 
@@ -51,6 +53,7 @@
                     placeholder="example@hotmail.com"
                     required
                 />
+                <span role="alert" id="emailError" aria-hidden="true"> Please enter Email </span>
             </div>
         
 
@@ -64,12 +67,13 @@
                     placeholder="Min 6 letters"
                     required
                 />
+                <span role="alert" id="passwordError" aria-hidden="true"> Please enter Password </span>
             </div>
 
             <h2>Tell us something about yourself..</h2>
 
             <div class="form-content">
-                <label for="age">What is your age?</label> 
+                <label for="age">What is your Age?</label> 
                 <input
                     type="number"
                     min="18"
@@ -78,9 +82,10 @@
                     name="age"
                     placeholder="18+" required
                 />
+                <span role="alert" id="ageError" aria-hidden="true"> Please enter Age </span>
             </div>
 
-            <h3>What is your gender?</h3>
+            <h3>What is your Gender?</h3>
             <div class="form-content">
                 <label for="man"
                 >Man
@@ -93,7 +98,7 @@
             </div>
 
             <div class="form-content">
-                <label for="occupation">What is your current occupation?</label>
+                <label for="occupation">What is your current Occupation?</label>
                 <input
                     type="text"
                     placeholder="Teacher of the year"
@@ -102,6 +107,7 @@
                     minlength="4" 
                     required
                 />
+                <span role="alert" id="occupationError" aria-hidden="true"> Please enter Occupation </span>
             </div>
 
             <small id="error"></small>

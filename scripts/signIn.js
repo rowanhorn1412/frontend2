@@ -14,7 +14,6 @@ submit.addEventListener('click', function(e) {
     console.log(localStorage);
     checkAccount();
     inputValidation();
-    // validateForm();
 })
 
 // checks is there is an account still in localStorage
@@ -27,15 +26,8 @@ function checkAccount() {
     }
 }
 
-// // Function to check the validation at each keydown event, so it auto refreshes
-// form.addEventListener('keydown', function() {
-//     validateForm();
-//     if (fieldvalidate == true) {
-//         submit.disabled = false
-//     }
-// });
 
-//checks if the input contains value, otherwise disable the submit button
+//checks if the input contains value, otherwise disable the submit button and give error messages
 function inputValidation() {
     const emailField = document.getElementById("email");
     const passwordField = document.getElementById("password");
