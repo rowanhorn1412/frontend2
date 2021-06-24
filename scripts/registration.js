@@ -22,28 +22,16 @@ submit.addEventListener('click', function(e) {
 
     //give error messages for empty input fields
     let message = []
-    if (firstName.value.match(numbers) || lastName.value.match(numbers)) {
+    if (firstName.value.match(numbers)) {
         message.push('Numbers are not allowed in your name')    
     }
 
-    if (firstName.value.match(numbers) || lastName.value.match(numbers)) {
+    if (firstName.value.match(numbers)) {
         message.push('Numbers are not allowed in your name')    
     }
 
     if (email.value === '/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/') {
         message.push('Please provide a valid email address')    
-    }
-
-    if (password.value.match('password') || password.value.match('password')) {
-        message.push('password cant be password')    
-    }
-
-    if (age.value == 18) {
-        message.push('You must be 18 or older')    
-    }
-
-    if (occupation.value === '' || occupation.value == null) {
-        message.push('Please fill in your current Occupation')    
     }
     
     if (message.length > 0) {
@@ -100,6 +88,14 @@ function inputValidation() {
     ageField.classList.add("invalid");
     ageError.setAttribute('aria-hidden', false);
     ageError.setAttribute('aria-invalid', true);
+  }
+
+  if (age.value < 18) {
+    const underAgeError = document.getElementById("underAgeError");
+    underAgeError.classList.add("visible");
+    ageField.classList.add("invalid");
+    underAgeError.setAttribute('aria-hidden', false);
+    underAgeError.setAttribute('aria-invalid', true);
   }
   
   if (!occupationField.value) {

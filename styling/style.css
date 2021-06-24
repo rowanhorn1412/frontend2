@@ -121,6 +121,16 @@ input:focus {
 #ageError.visible {
     display: block;
 }
+
+#underAgeError {
+    display: none;
+    font-size: 0.8em;
+    color: red;
+}
+  
+#underAgeError.visible {
+    display: block;
+}
   
 #occupationError {
     display: none;
